@@ -1,0 +1,17 @@
+flowchart TD
+    Start([Begin]) --> Check{n <= 0?}
+    Check -- Yes --> Return0[Return 0]
+    Check -- No --> Check2{n == 1?}
+    Check2 -- Yes --> Return1[Return 1]
+    Check2 -- No --> CreateArray[Create array fib n+1 length ]
+    CreateArray --> InitBase1[fib_0 = 0]
+    InitBase1 --> InitBase2[fib_1 = 1]
+    InitBase2 --> LoopInit[i = 2]
+    LoopInit --> LoopCheck{i <= n?}
+    LoopCheck -- Yes --> Compute[fib_i = fib_i-1 + fib_i-2]
+    Compute --> Increment[i = i + 1]
+    Increment --> LoopCheck
+    LoopCheck -- No --> ReturnResult[Return fib_n]
+    Return0 --> End([End])
+    Return1 --> End
+    ReturnResult --> End
